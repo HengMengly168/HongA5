@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>College of Science and Technology</title>
+  <style>
+    body {
+      font-family: "Khmer OS Battambang", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-banner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .menu-bar {
+      background-color: navy;
+      text-align: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    .menu-bar a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      padding: 8px 10px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .menu-bar a:hover {
+      background-color: #28a745;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    .welcome {
+      padding: 15px;
+      text-align: justify;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 1000px;
+      margin: 10px auto;
+    }
+
+    .gallery img {
+      width: 32%;
+      border: 4px solid gold;
+      border-radius: 12px;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .gallery img:hover {
+      box-shadow: 0 0 10px 4px #FFD700;
+    }
+    .gallery img.no-frame {
+      border: none;
+      border-radius: 0;
+    }
+
+    .section-title {
+      background-color: navy;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .section-title img {
+      width: 50px;
+    }
+
+    .footer {
+      background-color: navy;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .footer img {
+      /* Remove border for footer image */
+      border: none;
+      border-radius: 0;
+      box-sizing: border-box;
+    }
+
+    /* Modal styles */
+    .img-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .img-modal.active {
+      display: flex;
+    }
+    .img-modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 16px;
+      box-shadow: 0 0 20px #000;
+      background: #fff;
+      padding: 10px;
+      position: relative;
+    }
+    .img-modal-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      display: block;
+      margin: auto;
+      border-radius: 12px;
+    }
+    .img-modal-close {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      font-size: 2rem;
+      color: #333;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #0002;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .img-modal-close:hover {
+      background: #eee;
+    }
+
+    /* Responsive for mobile */
+    @media screen and (max-width: 768px) {
+      .gallery img {
+        width: 100%;
+      }
+
+      .menu-bar a {
+        display: block;
+        margin: 5px 0;
+      }
+
+      .section-title {
+        flex-direction: column;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- Banner -->
+  <div class="top-banner" style="overflow:hidden; position:relative; height:120px;">
+    <img src="image/banner.jpg" alt="Banner" id="moving-banner" style="position:absolute; left:0; top:0; height:120px;">
+  </div>
+
+  <!-- Menu Bar -->
+  <div class="menu-bar">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="faculty.html">Faculty Members</a>
+    <a href="training.html">Professional Training</a>
+    <a href="#">Music</a>
+    <a href="#">Degree Programs</a>
+    <a href="#">Computer Labs</a>
+  </div>
+
+  <!-- Welcome Message -->
+  <div class="welcome">
+    <p>
+      សូមស្វាគមន៍មកកាន់មហាវិទ្យាល័យវិទ្យាសាស្ត្រ និងបច្ចេកវិទ្យានៃសាកលវិទ្យាល័យកម្ពុជា។ 
+      សម្រាប់បុគ្គលដែលមានបំណងបន្តការសិក្សាសម្រាប់សញ្ញាប័ត្រឈានមុខ (AA) និងបរិញ្ញាប័ត្រ (BA) 
+      សូមចុះឈ្មោះឥឡូវនេះ ឬអញ្ជើញមកទស្សនាមហាវិទ្យាល័យកម្ពុជាផ្ទាល់។
+      Welcome to College of Science and Technology of The University of Cambodia. 
+      For everyone who wishes to pursue for any AA and BA degrees of the study programs, 
+      please register now or visit the campus of The University of Cambodia.
+    </p>
+    <div style="text-align:center; font-weight:bold; margin-top:10px; font-family:'Courier New', Courier, monospace; font-size:1.3em; letter-spacing:2px;">exam</div>
+  </div>
+
+  <!-- Gallery Row 1 -->
+  <div class="gallery">
+    <div style="width:32%;text-align:center;">
+      <img src="image/a.jpg" alt="Lab 1" class="enlargeable" style="width:100%;border:4px solid gold;border-radius:12px;box-sizing:border-box;">
+      <div style="font-weight:bold;margin-top:5px;">okk</div>
+    </div>
+    <div style="width:32%;text-align:center;">
+      <img src="image/b.JPG" alt="Graduation Group" class="enlargeable" style="width:100%;border:4px solid gold;border-radius:12px;box-sizing:border-box;">
+      <div style="font-weight:bold;margin-top:5px;">okk</div>
+    </div>
+    <div style="width:32%;text-align:center;">
+      <img src="image/c.jpg" alt="Graduation Toss" class="enlargeable" style="width:100%;border:4px solid gold;border-radius:12px;box-sizing:border-box;">
+      <div style="font-weight:bold;margin-top:5px;">okk</div>
+    </div>
+    <div style="width:32%;text-align:center;">
+      <img src="image/d.jpg" class="enlargeable" style="width:100%;">
+      <div style="font-weight:bold;margin-top:5px;">okk</div>
+    </div>
+  </div>
+
+  <!-- Section Title -->
+  <h2 style="color:white;background-color: darkblue;"><marquee bahavior="scroll" direction="light" scrollamount="20"><img src="image/cost.jpg"  alt="Images" style="width: 130px;height: 50px;">ស្វាគមន៍!​ IT EXPERT College Science and Technology</marquee></h2>
+
+  <!-- Gallery Row 2 -->
+   <div style="text-align:center; font-weight:bold; margin-top:10px; font-family:'Courier New', Courier, monospace; font-size:1.3em; letter-spacing:2px;">exam</div>
+  </div>
+  <div class="gallery">
+    <div style="width:32%;text-align:center;">
+      <img src="image/e.jpg" alt="Lab A" class="enlargeable" style="width:100%;border:4px solid gold;border-radius:12px;box-sizing:border-box;">
+      <div style="font-weight:bold;margin-top:5px;">okk</div>
+    </div>
+    <div style="width:32%;text-align:center;">
+      <img src="image/f.jpg" alt="Lab B" class="enlargeable" style="width:100%;border:4px solid gold;border-radius:12px;box-sizing:border-box;">
+      <div style="font-weight:bold;margin-top:5px;">okk</div>
+    </div>
+    <div style="width:32%;text-align:center;">
+      <img src="image/g.jpg" alt="Lab C" class="enlargeable" style="width:100%;border:4px solid gold;border-radius:12px;box-sizing:border-box;">
+      <div style="font-weight:bold;margin-top:5px;">okk</div>
+    </div>
+    <div style="width:32%;text-align:center;">
+      <img src="image/h.jpg" class="enlargeable" style="width:100%;">
+      <div style="font-weight:bold;margin-top:5px;">okk</div>
+    </div>
+  </div>
+
+  <!-- Modal for enlarged image -->
+  <div class="img-modal" id="img-modal">
+    <div class="img-modal-content">
+      <button class="img-modal-close" id="img-modal-close" title="Close">&times;</button>
+      <img src="" alt="Enlarged" id="img-modal-img">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <img src="image/uc.png" width="40px" height="40px"> © University of Cambodia
+  </div>
+
+  <script>
+    // Animate the banner image from left to right and right to left infinitely
+    window.addEventListener('DOMContentLoaded', function() {
+      var img = document.getElementById('moving-banner');
+      var container = img.parentElement;
+      var containerWidth = container.offsetWidth;
+      var imgWidth = img.offsetWidth;
+      var pos = 0;
+      var direction = -1; // Start moving left
+
+      function animate() {
+        pos += direction * 4;
+        // Move left until fully out, then reverse to right
+        if (pos <= -(imgWidth)) {
+          direction = 1;
+        }
+        // Move right until fully out, then reverse to left
+        if (pos >= containerWidth) {
+          direction = -1;
+        }
+        img.style.left = pos + 'px';
+        requestAnimationFrame(animate);
+      }
+
+      function startAnimation() {
+        imgWidth = img.offsetWidth;
+        containerWidth = container.offsetWidth;
+        pos = 0;
+        direction = -1;
+        animate();
+      }
+
+      if (img.complete) {
+        startAnimation();
+      } else {
+        img.onload = startAnimation();
+      }
+      window.addEventListener('resize', function() {
+        containerWidth = container.offsetWidth;
+        imgWidth = img.offsetWidth;
+      });
+    });
+
+    // Image enlarge modal logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var modal = document.getElementById('img-modal');
+      var modalImg = document.getElementById('img-modal-img');
+      var closeBtn = document.getElementById('img-modal-close');
+      document.querySelectorAll('.enlargeable').forEach(function(img) {
+        img.addEventListener('click', function() {
+          modal.classList.add('active');
+          modalImg.src = this.src;
+          modalImg.alt = this.alt || '';
+        });
+      });
+      closeBtn.addEventListener('click', function() {
+        modal.classList.remove('active');
+        modalImg.src = '';
+      });
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          modalImg.src = '';
+        }
+      });
+      // Optional: close with ESC key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          modal.classList.remove('active');
+          modalImg.src = '';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
